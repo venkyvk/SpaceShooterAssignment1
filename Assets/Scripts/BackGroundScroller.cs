@@ -1,0 +1,26 @@
+﻿/* Author: Venkatesh Managoli*/
+/* File: BackGoundScroller.cs */
+/* Creation Date: Sept 30, 2015 */
+/* Description: This script controls the background's movement */
+
+using UnityEngine;
+using System.Collections;
+
+public class BackGroundScroller : MonoBehaviour
+{
+	public float scrollSpeed;
+	public float tileSizeZ;
+
+	private Vector3 startPosition;
+
+	void Start ()
+	{
+		startPosition = transform.position;
+	}
+
+	void Update ()
+	{
+		float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeZ);
+		transform.position = startPosition + Vector3.forward * newPosition;
+	}
+}
